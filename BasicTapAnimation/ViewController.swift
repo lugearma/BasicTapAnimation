@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     @IBAction func animateButtonPressed(sender: UIButton) {
         
-        let size = 50
-        let yPositon = 120
+        let size : CGFloat = CGFloat(arc4random_uniform(40)) + 20
+        let yPositon : CGFloat = CGFloat(arc4random_uniform(200)) + 20
         let duration = 1.0
         let delay = 0.0
         let options = UIViewAnimationOptions.CurveLinear
