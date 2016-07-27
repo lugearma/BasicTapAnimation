@@ -9,19 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     @IBAction func animateButtonPressed(sender: UIButton) {
+        
+        let size = 50
+        let yPositon = 120
+        let duration = 1.0
+        let delay = 0.0
+        let options = UIViewAnimationOptions.CurveLinear
         let square = UIView()
         
         square.backgroundColor = UIColor.redColor()
-        square.frame = CGRect(x: 0, y: 120, width: 50, height: 50)
+        square.frame = CGRect(x: 0, y: yPositon, width: size, height: size)
         
         self.view.addSubview(square)
         
-        UIView.animateWithDuration(1.0, animations: {
+        UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
             square.backgroundColor = UIColor.blueColor()
             
-            square.frame = CGRect(x: 320-50, y: 120, width: 50, height: 50)
+            square.frame = CGRect(x: 320-50, y: yPositon, width: size, height: size)
             }, completion: { animationFinished in
                 square.removeFromSuperview()
         })
