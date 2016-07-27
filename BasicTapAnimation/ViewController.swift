@@ -22,6 +22,8 @@ class ViewController: UIViewController {
             square.backgroundColor = UIColor.blueColor()
             
             square.frame = CGRect(x: 320-50, y: 120, width: 50, height: 50)
+            }, completion: { animationFinished in
+                square.removeFromSuperview()
         })
     }
     
