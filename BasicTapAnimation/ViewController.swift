@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         let xPositon : CGFloat = CGFloat(arc4random_uniform(UInt32(screenWidth))) - 20
         let duration = 2.0
         let delay = 0.0
-        let options = UIViewAnimationOptions.CurveLinear
+        let options = UIViewAnimationOptions.CurveEaseIn
         let square = UIView()
         
         square.backgroundColor = UIColor.redColor()
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         self.view.addSubview(square)
         
         UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
-            square.backgroundColor = UIColor.blueColor()
+            square.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.0)
             
             square.frame = CGRect(x: xPositon, y: 0, width: size, height: size)
             }, completion: { animationFinished in
