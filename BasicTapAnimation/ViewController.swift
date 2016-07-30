@@ -12,12 +12,19 @@ class ViewController: UIViewController {
     
     var swipeUp = UISwipeGestureRecognizer()
     var swipeDown = UISwipeGestureRecognizer()
+    var tap = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTapGestureRecognizer()
         setupSwipeUp()
         setupSwipeDown()
+    }
+    
+    func setupTapGestureRecognizer() {
+        self.tap.addTarget(self, action: #selector(tapped))
+        self.view.addGestureRecognizer(tap)
     }
     
     func setupSwipeDown(){
@@ -40,13 +47,13 @@ class ViewController: UIViewController {
         print("down")
     }
     
-    @IBAction func tapped(sender: UITapGestureRecognizer) {
+    func tapped() {
         
         let screenHeight = self.view.frame.size.height
         let screenWidth = self.view.frame.size.width
         
         let size : CGFloat = CGFloat(arc4random_uniform(40)) + 40
-        let xPositon : CGFloat = CGFloat(arc4random_uniform(UInt32(screenWidth))) - 20
+        let xPositon : CGFloat = CGFloat(arc4random_uniform(UInt32(screenWidth))) - 25
         let yFinalPosition : CGFloat = CGFloat(arc4random_uniform(UInt32(screenHeight))) - (screenHeight/2)
         let duration = 2.0
         let delay = 0.0
