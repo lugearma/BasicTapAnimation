@@ -10,6 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var swipeUp = UISwipeGestureRecognizer()
+    var swipeDown = UISwipeGestureRecognizer()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupSwipeUp()
+        setupSwipeDown()
+    }
+    
+    func setupSwipeDown(){
+        self.swipeDown.addTarget(self, action: #selector(swippedDown))
+        self.swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.view.addGestureRecognizer(self.swipeDown)
+    }
+    
+    func setupSwipeUp() {
+        self.swipeUp.addTarget(self, action: #selector(swippedUp))
+        self.swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        self.view.addGestureRecognizer(self.swipeUp)
+    }
+    
+    func swippedUp() {
+        print("up")
+    }
+    
+    func swippedDown() {
+        print("down")
+    }
     
     @IBAction func tapped(sender: UITapGestureRecognizer) {
         
@@ -37,17 +66,6 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
 
