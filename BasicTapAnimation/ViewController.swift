@@ -9,31 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBAction func animateButtonPressed(sender: UIButton) {
+    
+    
+    @IBAction func tapped(sender: UITapGestureRecognizer) {
         
         let screenHeight = self.view.frame.size.height
         let screenWidth = self.view.frame.size.width
         
-        let size : CGFloat = CGFloat(arc4random_uniform(40)) + 20
+        let size : CGFloat = CGFloat(arc4random_uniform(40)) + 40
         let xPositon : CGFloat = CGFloat(arc4random_uniform(UInt32(screenWidth))) - 20
         let duration = 2.0
         let delay = 0.0
-        let options = UIViewAnimationOptions.CurveEaseIn
-        let square = UIView()
+        let options = UIViewAnimationOptions.CurveLinear
+        let square = UIImageView(image: UIImage(named: "berreando"))
         
-        square.backgroundColor = UIColor.redColor()
+        //        square.backgroundColor = UIColor(patternImage: UIImage(named: "berreando")!)
         square.frame = CGRect(x: xPositon, y: screenHeight, width: size, height: size)
-
+        
         self.view.addSubview(square)
         
         UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
-            square.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.0)
-            
+            //            square.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.0)
+            square.alpha = 0.0
             square.frame = CGRect(x: xPositon, y: 0, width: size, height: size)
             }, completion: { animationFinished in
                 square.removeFromSuperview()
         })
+        
     }
     
     override func viewDidLoad() {
