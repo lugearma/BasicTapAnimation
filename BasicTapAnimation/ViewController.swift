@@ -18,20 +18,19 @@ class ViewController: UIViewController {
         
         let size : CGFloat = CGFloat(arc4random_uniform(40)) + 40
         let xPositon : CGFloat = CGFloat(arc4random_uniform(UInt32(screenWidth))) - 20
+        let yFinalPosition : CGFloat = CGFloat(arc4random_uniform(UInt32(screenHeight))) - (screenHeight/2)
         let duration = 2.0
         let delay = 0.0
         let options = UIViewAnimationOptions.CurveLinear
         let square = UIImageView(image: UIImage(named: "berreando"))
         
-        //        square.backgroundColor = UIColor(patternImage: UIImage(named: "berreando")!)
         square.frame = CGRect(x: xPositon, y: screenHeight, width: size, height: size)
         
         self.view.addSubview(square)
         
         UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
-            //            square.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.0)
             square.alpha = 0.0
-            square.frame = CGRect(x: xPositon, y: 0, width: size, height: size)
+            square.frame = CGRect(x: xPositon, y: yFinalPosition, width: size, height: size)
             }, completion: { animationFinished in
                 square.removeFromSuperview()
         })
